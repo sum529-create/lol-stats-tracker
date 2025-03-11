@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Link from "next/link";
+import RQProvider from "@/components/providers/RQProvider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -29,7 +30,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-[#5b5f5e]`}
       >
         <nav className="sticky min-h-[50px] flex justify-around gap-2 bg-[#B33A3A] content-center flex-wrap text-[#eeeeee] font-bold">
           <Link className={NAV_LINK_STYLE} href="/">
@@ -45,8 +46,8 @@ export default function RootLayout({
             챔피언 로테이션
           </Link>
         </nav>
-        <main className="flex items-center w-full max-w-[1200px] my-0 mx-auto p-8 box-border relative min-h-[calc(100vh-50px)] text-center justify-center bg-[#4A4E4D]">
-          {children}
+        <main className="flex items-center w-full max-w-[1200px] my-0 mx-auto p-8 box-border relative min-h-[calc(100vh-50px)] text-center justify-center">
+          <RQProvider>{children}</RQProvider>
         </main>
       </body>
     </html>
