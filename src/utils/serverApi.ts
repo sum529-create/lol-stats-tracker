@@ -17,7 +17,9 @@ export const fetchChampionList = async (): Promise<ChampionBasic[]> => {
 export const fetchChampionDetail = async (
   imageName: string
 ): Promise<ChampionDetail> => {
-  const res = await fetch(`${DATA_DRAGON_API_URL}/champion/${imageName}.json`);
+  const res = await fetch(`${DATA_DRAGON_API_URL}/champion/${imageName}.json`, {
+    cache: "no-store",
+  });
   const data = await res.json();
 
   const championImage = data?.data?.[imageName];
