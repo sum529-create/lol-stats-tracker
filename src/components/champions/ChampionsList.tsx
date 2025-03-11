@@ -4,7 +4,8 @@ import { ChampionBasic } from "@/types/Champion";
 import { fetchChampionList } from "@/utils/serverApi";
 import { useQuery } from "@tanstack/react-query";
 import { useEffect, useState } from "react";
-import Loading from "@/app/champions/loading";
+import Loading from "@/app/loading";
+import CardWrapper from "@/ui/CardWrapper";
 
 const ChampionsList = () => {
   const [championsList, setChampionsList] = useState<ChampionBasic[]>([]);
@@ -28,11 +29,11 @@ const ChampionsList = () => {
     return <div>Error loading champions.</div>;
   }
   return (
-    <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+    <CardWrapper>
       {championsList?.map((champion, i) => (
         <ChampionsCard key={champion.key + i} champion={champion} />
       ))}
-    </ul>
+    </CardWrapper>
   );
 };
 
