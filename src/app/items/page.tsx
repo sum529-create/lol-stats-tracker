@@ -10,7 +10,7 @@ const ItemsPage = async () => {
   return (
     <MainWrapper>
       <Title>아이템 목록</Title>
-      {items?.length ? (
+      {items ? (
         <ItemsList data={items} />
       ) : (
         <div>아이템 데이터를 불러올 수 없습니다.</div>
