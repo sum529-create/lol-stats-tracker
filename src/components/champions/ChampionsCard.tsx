@@ -13,6 +13,7 @@ const ChampionsCard = ({ champion }: { champion: ChampionBasic }) => {
           height={300}
           src={`${CHAMPION_IMG_URL}/${champion.image.full}`}
           alt={champion.name}
+          loading="lazy"
         />
         <p className="text-[#dedede] text-xl my-4">{champion.name}</p>
         <p className="text-[#aeaeae]">{champion.title}</p>
