@@ -1,4 +1,9 @@
 "use client";
+import {
+  CHAMPION_ABILITY_IMG_URL,
+  CHAMPION_IMG_URL,
+  CHAMPION_PASSIVE_IMG_URL,
+} from "@/constants/constants";
 import { fetchChampionDetail } from "@/utils/serverApi";
 import { useQuery } from "@tanstack/react-query";
 import Image from "next/image";
@@ -34,8 +39,10 @@ const ChampionDetailClient = () => {
             {/* Basic Info */}
             <div className="bg-[#dedede] p-6 flex flex-wrap md:flex-nowrap gap-6 text-[#333333]">
               <div className="w-full md:w-1/4">
-                <img
-                  src={`${process.env.NEXT_PUBLIC_CHAMPION_IMG_URL}/${data.image.full}`}
+                <Image
+                  width={80}
+                  height={80}
+                  src={`${CHAMPION_IMG_URL}/${data.image.full}`}
                   alt={data.name}
                   className="w-32 h-32 bg-gray-700 rounded-lg mx-auto border-2 border-blue-500"
                 />
@@ -197,7 +204,7 @@ const ChampionDetailClient = () => {
                 <Image
                   width={50}
                   height={50}
-                  src={`${process.env.NEXT_PUBLIC_CHAMPION_PASSIVE_IMG_URL}/${data.passive.image.full}`}
+                  src={`${CHAMPION_PASSIVE_IMG_URL}/${data.passive.image.full}`}
                   alt={data.passive.name}
                   className="w-12 h-12 bg-gray-700 rounded-md border"
                 />
@@ -224,7 +231,7 @@ const ChampionDetailClient = () => {
               >
                 <div className="flex items-start gap-4">
                   <Image
-                    src={`${process.env.NEXT_PUBLIC_CHAMPION_ABILITY_IMG_URL}/${spell.image.full}`}
+                    src={`${CHAMPION_ABILITY_IMG_URL}/${spell.image.full}`}
                     alt={spell.name}
                     width={50}
                     height={50}

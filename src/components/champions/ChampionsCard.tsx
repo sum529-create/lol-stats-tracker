@@ -1,3 +1,4 @@
+import { CHAMPION_IMG_URL } from "@/constants/constants";
 import { ChampionBasic } from "@/types/Champion";
 import Image from "next/image";
 import Link from "next/link";
@@ -10,7 +11,7 @@ const ChampionsCard = ({ champion }: { champion: ChampionBasic }) => {
         <Image
           width={300}
           height={300}
-          src={`${process.env.NEXT_PUBLIC_CHAMPION_IMG_URL}/${champion.image.full}`}
+          src={`${CHAMPION_IMG_URL}/${champion.image.full}`}
           alt={champion.name}
         />
         <p className="text-[#dedede] text-xl my-4">{champion.name}</p>
