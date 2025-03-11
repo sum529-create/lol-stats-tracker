@@ -8,7 +8,7 @@ const Loading = () => {
         {tempArr.map((e, i) => {
           return (
             <li key={i} className="bg-[#4A4E4D] rounded-2xl px-4 py-6">
-              <div className="w-[240px] h-[240px] bg-[#767a79]"></div>
+              <div className="w-full h-[240px] bg-[#767a79]"></div>
               <p className="text-[#dedede] text-xl w-[120px] h-[30px] block"></p>
               <p className="text-[#aeaeae] w-[80px] h-[30px]"></p>
             </li>

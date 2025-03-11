@@ -32,19 +32,21 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-[#5b5f5e]`}
       >
-        <nav className="sticky min-h-[50px] flex justify-around gap-2 bg-[#B33A3A] content-center flex-wrap text-[#eeeeee] font-bold">
-          <Link className={NAV_LINK_STYLE} href="/">
-            홈
-          </Link>
-          <Link className={NAV_LINK_STYLE} href="/champions">
-            챔피언 목록
-          </Link>
-          <Link className={NAV_LINK_STYLE} href="/items">
-            아이템 목록
-          </Link>
-          <Link className={NAV_LINK_STYLE} href="/rotation">
-            챔피언 로테이션
-          </Link>
+        <nav className="sticky min-h-[50px]  bg-[#B33A3A] content-center">
+          <div className="flex justify-around gap-2 flex-wrap text-[#eeeeee] font-bold max-w-[1200px] my-0 mx-auto">
+            <Link className={NAV_LINK_STYLE} href="/">
+              홈
+            </Link>
+            <Link className={NAV_LINK_STYLE} href="/champions">
+              챔피언 목록
+            </Link>
+            <Link className={NAV_LINK_STYLE} href="/items">
+              아이템 목록
+            </Link>
+            <Link className={NAV_LINK_STYLE} href="/rotation">
+              챔피언 로테이션
+            </Link>
+          </div>
         </nav>
         <main className="flex items-center w-full max-w-[1200px] my-0 mx-auto p-8 box-border relative min-h-[calc(100vh-50px)] text-center justify-center">
           <RQProvider>{children}</RQProvider>
