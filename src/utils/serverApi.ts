@@ -22,7 +22,6 @@ export const fetchChampionDetail = async (
   );
   const data = await res.json();
 
-  // 예시로 data.data 안에 imageName이 없다면?
   const championImage = data?.data?.[imageName];
 
   if (!championImage) {
