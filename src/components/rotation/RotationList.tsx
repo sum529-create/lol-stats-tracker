@@ -1,21 +1,50 @@
 "use client";
-import { fetchRotationsList } from "@/utils/serverApi";
+import { Champion, ChampionBasic } from "@/types/Champion";
+import CardWrapper from "@/ui/CardWrapper";
+import { fetchChampionList, fetchRotationsList } from "@/utils/serverApi";
 import { useQuery } from "@tanstack/react-query";
 import React from "react";
+import ChampionsCard from "../champions/ChampionsCard";
+import Loading from "@/app/loading";
 
 const RotationList = () => {
-  const { data, isLoading, isError, error } = useQuery({
+  const {
+    data: rotationData,
+    isLoading: rotationLoading,
+    isError,
+    error,
+  } = useQuery({
     queryKey: ["rotation"],
     queryFn: fetchRotationsList,
   });
 
-  if (isLoading) return <div>로딩 중...</div>;
+  const { data: championsData, isLoading: championsLoading } = useQuery({
+    queryKey: ["champions"],
+    queryFn: fetchChampionList,
+  });
+
+  const championsById: { [key: string]: Champion } = {};
+  if (championsData) {
+    Object.values(championsData).forEach((e: Champion) => {
+      championsById[e.key] = e;
+    });
+  }
+  // 로테이션 아이디와 조인
+  const freeRotationChampions = rotationData?.freeChampionIds.map(
+    (e: number) => championsById[e.toString()]
+  );
+
+  if (rotationLoading || championsLoading) return <Loading />;
   if (isError) return <div>에러 발생: {error.message}</div>;
-  if (!data) return <div>데이터가 없습니다</div>;
+  if (!rotationData || !championsData) return <div>데이터가 없습니다</div>;
 
-  console.log(data);
-
-  return <div>RotationList</div>;
+  return (
+    <CardWrapper>
+      {freeRotationChampions?.map((champion: ChampionBasic, i: number) => (
+        <ChampionsCard key={champion.key + i} champion={champion} />
+      ))}
+    </CardWrapper>
+  );
 };
 
 export default RotationList;
