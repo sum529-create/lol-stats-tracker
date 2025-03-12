@@ -1,4 +1,3 @@
-"use client";
 import { Item } from "@/types/Item";
 import CardWrapper from "@/ui/CardWrapper";
 import React from "react";

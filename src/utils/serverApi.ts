@@ -4,7 +4,7 @@ import { ChampionBasic, ChampionDetail } from "@/types/Champion";
 const DEFAULT_LANGUAGE = "ko_KR";
 
 // 최신 버전 불러오기
-const getLatestVersion = async () => {
+export const getLatestVersion = async () => {
   const res = await fetch(
     "https://ddragon.leagueoflegends.com/api/versions.json"
   );

@@ -1,13 +1,13 @@
-import {
-  CHAMPION_ABILITY_IMG_URL,
-  CHAMPION_IMG_URL,
-  CHAMPION_PASSIVE_IMG_URL,
-} from "@/constants/constants";
+import { RIOT_GAMES_API_URL } from "@/constants/constants";
 import { ChampionDetail } from "@/types/Champion";
+import { getLatestVersion } from "@/utils/serverApi";
 import Image from "next/image";
 import React from "react";
 
-const ChampionDetailClient = ({ data }: { data: ChampionDetail }) => {
+const ChampionDetailClient = async ({ data }: { data: ChampionDetail }) => {
+  const version = await getLatestVersion();
+  const DEFAULT_CHAMPION_IMG_URL = `${RIOT_GAMES_API_URL}/cdn/${version}/img`;
+
   return (
     <div className="container mx-auto p-4 max-w-6xl">
       {data && (
@@ -28,7 +28,7 @@ const ChampionDetailClient = ({ data }: { data: ChampionDetail }) => {
                 <Image
                   width={80}
                   height={80}
-                  src={`${CHAMPION_IMG_URL}/${data.image.full}`}
+                  src={`${DEFAULT_CHAMPION_IMG_URL}/champion/${data.image.full}`}
                   alt={data.name}
                   className="w-32 h-32 bg-gray-700 rounded-lg mx-auto border-2 border-blue-500"
                 />
@@ -190,7 +190,7 @@ const ChampionDetailClient = ({ data }: { data: ChampionDetail }) => {
                 <Image
                   width={50}
                   height={50}
-                  src={`${CHAMPION_PASSIVE_IMG_URL}/${data.passive.image.full}`}
+                  src={`${DEFAULT_CHAMPION_IMG_URL}/passive/${data.passive.image.full}`}
                   alt={data.passive.name}
                   className="w-12 h-12 bg-gray-700 rounded-md border"
                 />
@@ -217,7 +217,7 @@ const ChampionDetailClient = ({ data }: { data: ChampionDetail }) => {
               >
                 <div className="flex items-start gap-4">
                   <Image
-                    src={`${CHAMPION_ABILITY_IMG_URL}/${spell.image.full}`}
+                    src={`${DEFAULT_CHAMPION_IMG_URL}/spell/${spell.image.full}`}
                     alt={spell.name}
                     width={50}
                     height={50}
