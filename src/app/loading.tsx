@@ -3,7 +3,7 @@ import React from "react";
 const Loading = () => {
   const tempArr = Array(8).fill("");
   return (
-    <div className="animate-pulse space-y-4">
+    <div className="animate-pulse space-y-4 flex-1">
       <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
         {tempArr.map((e, i) => {
           return (
