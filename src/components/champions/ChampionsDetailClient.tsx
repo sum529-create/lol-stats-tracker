@@ -1,27 +1,13 @@
-"use client";
 import {
   CHAMPION_ABILITY_IMG_URL,
   CHAMPION_IMG_URL,
   CHAMPION_PASSIVE_IMG_URL,
 } from "@/constants/constants";
-import { fetchChampionDetail } from "@/utils/serverApi";
-import { useQuery } from "@tanstack/react-query";
+import { ChampionDetail } from "@/types/Champion";
 import Image from "next/image";
-import { useParams } from "next/navigation";
 import React from "react";
 
-const ChampionDetailClient = () => {
-  const { id } = useParams();
-
-  const { data, isFetching, error } = useQuery({
-    queryKey: ["champion", id],
-    queryFn: () => fetchChampionDetail(id as string),
-    enabled: !!id,
-  });
-
-  if (isFetching) return <>Loading...</>;
-  if (error) return <>error occur</>;
-
+const ChampionDetailClient = ({ data }: { data: ChampionDetail }) => {
   return (
     <div className="container mx-auto p-4 max-w-6xl">
       {data && (

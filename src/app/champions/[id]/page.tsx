@@ -8,15 +8,19 @@ export async function generateMetadata({
 }: {
   params: { id: string };
 }): Promise<Metadata> {
-  const champion = await fetchChampionDetail(params.id);
+  const { id } = await params;
+  const champion = await fetchChampionDetail(id);
   return {
     title: `${champion.title + " " + champion.name}의 상세 페이지`,
     description: `${champion.lore}`,
   };
 }
 
-const ChampionDetail = () => {
-  return <ChampionDetailClient />;
+const ChampionDetail = async ({ params }: { params: { id: string } }) => {
+  const { id } = await params;
+  const champion = await fetchChampionDetail(id as string);
+
+  return <ChampionDetailClient data={champion} />;
 };
 
 export default ChampionDetail;
