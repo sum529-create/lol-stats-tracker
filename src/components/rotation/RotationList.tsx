@@ -7,7 +7,8 @@ import React from "react";
 import ChampionsCard from "../champions/ChampionsCard";
 import Loading from "@/app/loading";
 
-const RotationList = () => {
+type RotationType = "freeChampionIds" | "freeChampionIdsForNewPlayers";
+const RotationList = ({ type }: { type: RotationType }) => {
   const {
     data: rotationData,
     isLoading: rotationLoading,
@@ -30,7 +31,7 @@ const RotationList = () => {
     });
   }
   // 로테이션 아이디와 조인
-  const freeRotationChampions = rotationData?.freeChampionIds.map(
+  const freeRotationChampions = rotationData?.[type].map(
     (e: number) => championsById[e.toString()]
   );
 
