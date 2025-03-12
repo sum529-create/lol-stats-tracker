@@ -109,7 +109,7 @@ const ChampionDetailClient = () => {
               <h2 className="text-xl font-semibold text-[#222] mb-4">
                 Combat Statistics
               </h2>
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid gap-4">
                 <div className="text-[#4A4E4D]">
                   <p className="flex justify-between">
                     <span>Health:</span>

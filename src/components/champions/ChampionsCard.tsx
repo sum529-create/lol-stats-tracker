@@ -14,7 +14,7 @@ const ChampionsCard = ({ champion }: { champion: ChampionBasic }) => {
           src={`${CHAMPION_IMG_URL}/${champion.image.full}`}
           alt={champion.name}
           loading="lazy"
-          className="bg-[#767a79]"
+          className="bg-[#767a79] my-0 mx-auto"
         />
         <p className="text-[#dedede] text-xl my-4">{champion.name}</p>
         <p className="text-[#aeaeae]">{champion.title}</p>

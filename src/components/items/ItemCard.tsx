@@ -12,7 +12,7 @@ const ItemCard = ({ item }: { item: Item }) => {
         src={`${ITEMS_URL}/${item.image.full}`}
         alt={item.name}
         loading="lazy"
-        className="bg-[#767a79]"
+        className="bg-[#767a79] my-0 mx-auto"
       />
       <p className="text-[#dedede] text-xl my-4">{item.name}</p>
       <p className="text-[#aeaeae]">{item.plaintext}</p>
