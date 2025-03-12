@@ -1,15 +1,17 @@
-import { ITEMS_URL } from "@/constants/constants";
+import { RIOT_GAMES_API_URL } from "@/constants/constants";
 import { Item } from "@/types/Item";
+import { getLatestVersion } from "@/utils/serverApi";
 import Image from "next/image";
 import React from "react";
 
-const ItemCard = ({ item }: { item: Item }) => {
+const ItemCard = async ({ item }: { item: Item }) => {
+  const version = await getLatestVersion();
   return (
     <li className="bg-[#4A4E4D] rounded-2xl hover:scale-115 hover:transition-all px-4 py-6">
       <Image
         width={300}
         height={300}
-        src={`${ITEMS_URL}/${item.image.full}`}
+        src={`${RIOT_GAMES_API_URL}/cdn/${version}/img/item/${item.image.full}`}
         alt={item.name}
         loading="lazy"
         className="bg-[#767a79] my-0 mx-auto"
