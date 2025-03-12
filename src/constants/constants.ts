@@ -8,3 +8,5 @@ export const CHAMPION_PASSIVE_IMG_URL =
   "https://ddragon.leagueoflegends.com/cdn/15.5.1/img/passive";
 export const ITEMS_URL =
   "https://ddragon.leagueoflegends.com/cdn/15.5.1/img/item";
+export const ROTATION_API_URL =
+  "https://kr.api.riotgames.com/lol/platform/v3/champion-rotations";
