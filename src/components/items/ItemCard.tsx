@@ -11,6 +11,7 @@ const ItemCard = ({ item }: { item: Item }) => {
         height={300}
         src={`${ITEMS_URL}/${item.image.full}`}
         alt={item.name}
+        loading="lazy"
         className="bg-[#767a79]"
       />
       <p className="text-[#dedede] text-xl my-4">{item.name}</p>
