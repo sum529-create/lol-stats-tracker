@@ -5,58 +5,96 @@ const DEFAULT_LANGUAGE = "ko_KR";
 
 // 최신 버전 불러오기
 export const getLatestVersion = async () => {
-  const res = await fetch(
-    "https://ddragon.leagueoflegends.com/api/versions.json"
-  );
-  const data = await res.json();
-  return data[0];
+  try {
+    const res = await fetch(
+      "https://ddragon.leagueoflegends.com/api/versions.json"
+    );
+
+    if (!res.ok) {
+      throw new Error(`Failed to fetch versions: ${res.status}`);
+    }
+
+    const data = await res.json();
+    return data[0]; // 최신 버전 반환
+  } catch (error) {
+    console.error("Error fetching latest version:", error);
+    return "default_version"; // 기본값 설정
+  }
 };
 
 // 챔피언 데이터 리스트
 export const fetchChampionList = async (): Promise<ChampionBasic[]> => {
-  const version = await getLatestVersion();
-  const res = await fetch(
-    `${RIOT_GAMES_API_URL}/cdn/${version}/data/${DEFAULT_LANGUAGE}/champion.json`,
-    {
-      next: {
-        revalidate: 86400,
-      },
-    }
-  );
-  const data = await res.json();
+  try {
+    const version = await getLatestVersion();
+    const res = await fetch(
+      `${RIOT_GAMES_API_URL}/cdn/${version}/data/${DEFAULT_LANGUAGE}/champion.json`,
+      {
+        next: {
+          revalidate: 86400,
+        },
+      }
+    );
 
-  return data?.data;
+    if (!res.ok) {
+      throw new Error(`Failed to fetch champion list: ${res.status}`);
+    }
+
+    const data = await res.json();
+    return data?.data || [];
+  } catch (error) {
+    console.error("Error fetching champion list:", error);
+    return [];
+  }
 };
 
 // 챔피언 데이터 상세
 export const fetchChampionDetail = async (
   imageName: string
-): Promise<ChampionDetail> => {
-  const version = await getLatestVersion();
-  const res = await fetch(
-    `${RIOT_GAMES_API_URL}/cdn/${version}/data/${DEFAULT_LANGUAGE}/champion/${imageName}.json`,
-    {
-      cache: "no-store",
+): Promise<ChampionDetail | null> => {
+  try {
+    const version = await getLatestVersion();
+    const res = await fetch(
+      `${RIOT_GAMES_API_URL}/cdn/${version}/data/${DEFAULT_LANGUAGE}/champion/${imageName}.json`,
+      {
+        cache: "no-store",
+      }
+    );
+
+    if (!res.ok) {
+      throw new Error(`Failed to fetch champion detail: ${res.status}`);
     }
-  );
-  const data = await res.json();
 
-  const championImage = data?.data?.[imageName];
+    const data = await res.json();
+    const championImage = data?.data?.[imageName];
 
-  if (!championImage) {
-    console.error("No imageName found.");
+    if (!championImage) {
+      console.error("Champion detail not found.");
+      return null;
+    }
+
+    return championImage;
+  } catch (error) {
+    console.error("Error fetching champion detail:", error);
+    return null;
   }
-
-  return championImage;
 };
 
 // 아이템 데이터 리스트
 export const fetchItemsList = async () => {
-  const version = await getLatestVersion();
-  const res = await fetch(
-    `${RIOT_GAMES_API_URL}/cdn/${version}/data/${DEFAULT_LANGUAGE}/item.json`
-  );
-  const data = await res.json();
+  try {
+    const version = await getLatestVersion();
+    const res = await fetch(
+      `${RIOT_GAMES_API_URL}/cdn/${version}/data/${DEFAULT_LANGUAGE}/item.json`
+    );
 
-  return data?.data;
+    if (!res.ok) {
+      throw new Error(`Failed to fetch items: ${res.status}`);
+    }
+
+    const data = await res.json();
+    return data?.data || [];
+  } catch (error) {
+    console.error("Error fetching item list:", error);
+    return [];
+  }
 };
