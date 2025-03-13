@@ -1,4 +1,4 @@
-import { RIOT_GAMES_API_URL, ROTATION_API_URL } from "@/constants/constants";
+import { RIOT_GAMES_API_URL } from "@/constants/constants";
 import { ChampionBasic, ChampionDetail } from "@/types/Champion";
 
 const DEFAULT_LANGUAGE = "ko_KR";
