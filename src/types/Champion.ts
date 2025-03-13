@@ -104,10 +104,10 @@ export type ChampionSpell = {
   cooldownBurn: string;
   cost: number[];
   costBurn: string;
-  datavalues: Record<string, any>;
+  datavalues: Record<string, unknown>;
   effect: (number[] | null)[];
   effectBurn: (string | null)[];
-  vars: any[];
+  vars: string[];
   costType: string;
   maxammo: string;
   range: number[];
