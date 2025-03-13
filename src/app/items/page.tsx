@@ -2,11 +2,11 @@ import ItemsList from "@/components/items/ItemsList";
 import MainWrapper from "@/ui/MainWrapper";
 import Title from "@/ui/Title";
 import { fetchItemsList } from "@/utils/serverApi";
-import React, { Suspense } from "react";
+import React, { Suspense, use } from "react";
 import Loading from "../loading";
 
-export const ItemsContent = async () => {
-  const items = await fetchItemsList();
+export const ItemsContent = () => {
+  const items = use(fetchItemsList());
   return (
     <>
       {items ? (

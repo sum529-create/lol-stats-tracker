@@ -1,15 +1,15 @@
-import React from "react";
+import React, { use } from "react";
 import ChampionsCard from "./ChampionsCard";
 import { ChampionBasic } from "@/types/Champion";
 import CardWrapper from "@/ui/CardWrapper";
 import { getLatestVersion } from "@/utils/serverApi";
 
-const ChampionsList = async ({
+const ChampionsList = ({
   championsList,
 }: {
   championsList: ChampionBasic[];
 }) => {
-  const version = await getLatestVersion();
+  const version = use(getLatestVersion());
   return (
     <CardWrapper>
       {championsList?.map((champion, i) => (

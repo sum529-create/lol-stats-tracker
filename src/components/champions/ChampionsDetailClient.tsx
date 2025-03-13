@@ -2,10 +2,10 @@ import { RIOT_GAMES_API_URL } from "@/constants/constants";
 import { ChampionDetail } from "@/types/Champion";
 import { getLatestVersion } from "@/utils/serverApi";
 import Image from "next/image";
-import React from "react";
+import React, { use } from "react";
 
-const ChampionDetailClient = async ({ data }: { data: ChampionDetail }) => {
-  const version = await getLatestVersion();
+const ChampionDetailClient = ({ data }: { data: ChampionDetail }) => {
+  const version = use(getLatestVersion());
   const DEFAULT_CHAMPION_IMG_URL = `${RIOT_GAMES_API_URL}/cdn/${version}/img`;
 
   return (
