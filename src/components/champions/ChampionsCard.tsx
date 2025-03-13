@@ -1,13 +1,16 @@
 import { RIOT_GAMES_API_URL } from "@/constants/constants";
 import { ChampionBasic } from "@/types/Champion";
-import { getLatestVersion } from "@/utils/serverApi";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
-const ChampionsCard = async ({ champion }: { champion: ChampionBasic }) => {
-  const version = await getLatestVersion();
-
+const ChampionsCard = ({
+  champion,
+  version,
+}: {
+  champion: ChampionBasic;
+  version: string;
+}) => {
   return (
     <li className="bg-[#4A4E4D] rounded-2xl hover:scale-115 hover:transition-all">
       <Link href={`/champions/${champion.id}`} className="block px-4 py-6 ">
