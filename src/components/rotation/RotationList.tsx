@@ -1,11 +1,12 @@
 "use client";
 import { Champion, ChampionBasic } from "@/types/Champion";
 import CardWrapper from "@/ui/CardWrapper";
-import { fetchChampionList, fetchRotationsList } from "@/utils/serverApi";
+import { fetchChampionList, getLatestVersion } from "@/utils/serverApi";
 import { useQuery } from "@tanstack/react-query";
 import React from "react";
 import ChampionsCard from "../champions/ChampionsCard";
 import Loading from "@/app/loading";
+import { getChampionRotation } from "@/utils/riotApi";
 
 type RotationType = "freeChampionIds" | "freeChampionIdsForNewPlayers";
 const RotationList = ({ type }: { type: RotationType }) => {
@@ -16,7 +17,7 @@ const RotationList = ({ type }: { type: RotationType }) => {
     error,
   } = useQuery({
     queryKey: ["rotation"],
-    queryFn: fetchRotationsList,
+    queryFn: getChampionRotation,
   });
 
   const { data: championsData, isLoading: championsLoading } = useQuery({
