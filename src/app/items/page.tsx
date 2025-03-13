@@ -5,7 +5,7 @@ import { fetchItemsList } from "@/utils/serverApi";
 import React, { Suspense, use } from "react";
 import Loading from "../loading";
 
-export const ItemsContent = () => {
+const ItemsContent = () => {
   const items = use(fetchItemsList());
   return (
     <>
