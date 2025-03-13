@@ -25,12 +25,18 @@ const RotationList = ({ type }: { type: RotationType }) => {
     queryFn: fetchChampionList,
   });
 
+  const { data: version } = useQuery({
+    queryKey: ["version"],
+    queryFn: getLatestVersion,
+  });
+
   const championsById: { [key: string]: Champion } = {};
   if (championsData) {
     Object.values(championsData).forEach((e: Champion) => {
       championsById[e.key] = e;
     });
   }
+
   // 로테이션 아이디와 조인
   const freeRotationChampions = rotationData?.[type].map(
     (e: number) => championsById[e.toString()]
@@ -43,7 +49,11 @@ const RotationList = ({ type }: { type: RotationType }) => {
   return (
     <CardWrapper>
       {freeRotationChampions?.map((champion: ChampionBasic, i: number) => (
-        <ChampionsCard key={champion.key + i} champion={champion} />
+        <ChampionsCard
+          key={champion.key + i}
+          champion={champion}
+          version={version}
+        />
       ))}
     </CardWrapper>
   );

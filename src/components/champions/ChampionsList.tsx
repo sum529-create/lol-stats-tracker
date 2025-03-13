@@ -1,18 +1,23 @@
-"use client";
 import React from "react";
 import ChampionsCard from "./ChampionsCard";
 import { ChampionBasic } from "@/types/Champion";
 import CardWrapper from "@/ui/CardWrapper";
+import { getLatestVersion } from "@/utils/serverApi";
 
-const ChampionsList = ({
+const ChampionsList = async ({
   championsList,
 }: {
   championsList: ChampionBasic[];
 }) => {
+  const version = await getLatestVersion();
   return (
     <CardWrapper>
       {championsList?.map((champion, i) => (
-        <ChampionsCard key={champion.key + i} champion={champion} />
+        <ChampionsCard
+          key={champion.key + i}
+          version={version}
+          champion={champion}
+        />
       ))}
     </CardWrapper>
   );
