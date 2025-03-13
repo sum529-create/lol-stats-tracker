@@ -1,5 +1,6 @@
 import { RIOT_GAMES_API_URL } from "@/constants/constants";
 import { Item } from "@/types/Item";
+import itemDescription from "@/utils/sanitizeText";
 import { getLatestVersion } from "@/utils/serverApi";
 import Image from "next/image";
 import React, { use } from "react";
@@ -16,8 +17,15 @@ const ItemCard = ({ item }: { item: Item }) => {
         loading="lazy"
         className="bg-[#767a79] my-0 mx-auto"
       />
-      <p className="text-[#dedede] text-xl my-4">{item.name}</p>
-      <p className="text-[#aeaeae]">{item.plaintext}</p>
+      <p className="text-[#dedede] text-xl my-4">
+        {itemDescription({ description: item.name })}
+      </p>
+      <p className="text-[#aeaeae]">
+        {itemDescription({ description: item.plaintext })}
+      </p>
+      <p className="text-[#aeaeae]">
+        {itemDescription({ description: item.description })}
+      </p>
     </li>
   );
 };
