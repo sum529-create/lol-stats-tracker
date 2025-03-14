@@ -28,7 +28,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   const NAV_LINK_STYLE =
-    "p-2.5 min-w-[150px] flex text-center justify-center item-center leading-[30px] hover:bg-[#892f2f]";
+    "p-2.5 min-w-[150px] flex text-center justify-center item-center leading-[30px] hover:bg-[var(--nav-bg-color-hover)]";
 
   return (
     <html lang="en" suppressHydrationWarning>
@@ -63,6 +63,14 @@ export default function RootLayout({
             </ThemeProvider>
           </RQProvider>
         </main>
+        <footer className="h-[100px] flex content-center">
+          <div className="text-center mt-12 text-sm opacity-70 flex-1">
+            <p>
+              이 앱은 Riot Games API를 사용하며, Riot Games의 공식 제품이
+              아닙니다.
+            </p>
+          </div>
+        </footer>
       </body>
     </html>
   );

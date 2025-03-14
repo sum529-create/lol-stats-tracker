@@ -10,8 +10,8 @@ const ItemCard = ({ item }: { item: Item }) => {
   return (
     <li className="bg-[var(--champions-card-bg-color)] rounded-2xl hover:scale-115 hover:transition-all px-4 py-6">
       <Image
-        width={300}
-        height={300}
+        width={200}
+        height={200}
         src={`${RIOT_GAMES_API_URL}/cdn/${version}/img/item/${item.image.full}`}
         alt={item.name}
         loading="lazy"
