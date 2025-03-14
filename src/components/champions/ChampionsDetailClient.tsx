@@ -9,7 +9,7 @@ const ChampionDetailClient = ({ data }: { data: ChampionDetail }) => {
   const DEFAULT_CHAMPION_IMG_URL = `${RIOT_GAMES_API_URL}/cdn/${version}/img`;
 
   return (
-    <div className="container mx-auto p-4 max-w-6xl">
+    <div className="container mx-auto p-4 max-w-6xl prose dark:prose-invert">
       {data && (
         <>
           {/* Hero Section */}

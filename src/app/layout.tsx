@@ -3,6 +3,8 @@ import localFont from "next/font/local";
 import "./globals.css";
 import Link from "next/link";
 import RQProvider from "@/components/providers/RQProvider";
+import { ThemeProvider } from "next-themes";
+import ThemeChange from "@/components/ThemeChange";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -29,11 +31,11 @@ export default function RootLayout({
     "p-2.5 min-w-[150px] flex text-center justify-center item-center leading-[30px] hover:bg-[#892f2f]";
 
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-[#5b5f5e]`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-[#5b5f5e] relative`}
       >
-        <nav className="sticky min-h-[50px]  bg-[#B33A3A] content-center">
+        <nav className="sticky min-h-[50px]  bg-[var(--nav-bg-color)] content-center">
           <div className="flex justify-around gap-2 flex-wrap text-[#eeeeee] font-bold max-w-[1200px] my-0 mx-auto">
             <Link className={NAV_LINK_STYLE} href="/">
               홈
@@ -50,7 +52,16 @@ export default function RootLayout({
           </div>
         </nav>
         <main className="flex items-center w-full max-w-[1200px] my-0 mx-auto p-8 box-border relative min-h-[calc(100vh-50px)] text-center justify-center">
-          <RQProvider>{children}</RQProvider>
+          <RQProvider>
+            <ThemeProvider
+              attribute="class"
+              defaultTheme="light"
+              enableSystem={false}
+            >
+              {children}
+              <ThemeChange />
+            </ThemeProvider>
+          </RQProvider>
         </main>
       </body>
     </html>
