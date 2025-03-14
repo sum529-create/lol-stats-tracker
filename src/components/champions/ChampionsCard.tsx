@@ -12,7 +12,7 @@ const ChampionsCard = ({
   version: string;
 }) => {
   return (
-    <li className="bg-[#4A4E4D] rounded-2xl hover:scale-115 hover:transition-all">
+    <li className="bg-[var(--champions-card-bg-color)] rounded-2xl hover:scale-115 hover:transition-all">
       <Link href={`/champions/${champion.id}`} className="block px-4 py-6 ">
         <Image
           width={300}
@@ -20,10 +20,14 @@ const ChampionsCard = ({
           src={`${RIOT_GAMES_API_URL}/cdn/${version}/img/champion/${champion.image.full}`}
           alt={champion.name}
           loading="lazy"
-          className="bg-[#767a79] my-0 mx-auto"
+          className="bg-[var(--champions-card-image-color)] my-0 mx-auto"
         />
-        <p className="text-[#dedede] text-xl my-4">{champion.name}</p>
-        <p className="text-[#aeaeae]">{champion.title}</p>
+        <p className="text-[var(--champions-card-title-color)] text-xl my-4">
+          {champion.name}
+        </p>
+        <p className="text-[var(--champions-card-sub-title-color)]">
+          {champion.title}
+        </p>
       </Link>
     </li>
   );
