@@ -36,9 +36,9 @@ const ThemeChange = () => {
       ) : (
         <div
           onClick={() => setTheme("light")}
-          className={cn(DEFAULT_BUTTON_WRAPPER, "bg-blue-300")}
+          className={cn(DEFAULT_BUTTON_WRAPPER, "bg-blue-400")}
         >
-          <FaSun size={24} color="orange" className={DEFAULT_ICON_STYLE} />
+          <FaSun size={24} color="yellow" className={DEFAULT_ICON_STYLE} />
         </div>
       )}
     </>
