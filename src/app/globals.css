@@ -12,12 +12,18 @@
   --gradient-start: #4c9c92;
   --gradient-end: #a15f9b;
   --title-text-color: #111111;
-  --nav-bg-color: #551a8b;
-  --nav-bg-color-hover: #551a8b;
+  --nav-bg-color: #b33a3a;
+  --nav-bg-color-hover: #d14d4d;
   --champions-card-bg-color: #f0f2f1;
   --champions-card-image-color: #767a79;
   --champions-card-title-color: #444444;
   --champions-card-sub-title-color: #888888;
+  --champion-detail-gradient-from: #ea6a64;
+  --champion-detail-gradient-to: #ffcec3c3;
+  --champion-detail-box-bg: #dedede;
+  --champion-detail-box-text: #444444;
+  --champion-detail-box-title: #4a4e4d;
+  --champion-detail-box-main: #222;
 }
 
 .dark {
@@ -32,12 +38,18 @@
   --gradient-start: rgba(30, 58, 138, 0.8);
   --gradient-end: rgba(88, 28, 135, 0.8);
   --title-text-color: #dedede;
-  --nav-bg-color: #8a2e2e;
-  --nav-bg-color-hover: #892f2f;
+  --nav-bg-color: #301934;
+  --nav-bg-color-hover: #4b0082;
   --champions-card-bg-color: #2a2e2a;
   --champions-card-image-color: #484d47;
   --champions-card-title-color: #f5f5f5;
   --champions-card-sub-title-color: #a2a2a2;
+  --champion-detail-gradient-from: #1a001f;
+  --champion-detail-gradient-to: #3d004f;
+  --champion-detail-box-bg: #1f1f1f;
+  --champion-detail-box-text: #e0e0e0;
+  --champion-detail-box-title: #ddd;
+  --champion-detail-box-main: #eee;
 }
 
 body {

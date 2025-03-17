@@ -28,7 +28,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   const NAV_LINK_STYLE =
-    "p-2.5 min-w-[150px] flex text-center justify-center item-center leading-[30px] hover:bg-[var(--nav-bg-color-hover)]";
+    "p-2.5 min-w-[150px] flex flex-1 text-center justify-center item-center leading-[30px] hover:bg-[var(--nav-bg-color-hover)]";
 
   return (
     <html lang="en" suppressHydrationWarning>

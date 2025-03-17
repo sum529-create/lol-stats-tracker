@@ -14,16 +14,18 @@ const ChampionDetailClient = ({ data }: { data: ChampionDetail }) => {
         <>
           {/* Hero Section */}
           <div className="rounded-lg overflow-hidden mb-8 relative">
-            <div className="w-full h-64 bg-gradient-to-r from-[#ea6a64] to-[#ffcec3c3] relative">
+            <div className="w-full h-64 bg-gradient-to-r from-[var(--champion-detail-gradient-from)] to-[var(--champion-detail-gradient-to)] relative">
               {/* Champion name overlay */}
               <div className="absolute bottom-0 left-0 p-6 z-10">
                 <h1 className="text-4xl font-bold text-white">{data.name}</h1>
-                <p className="text-xl text-[#4A4E4D]">{data.title}</p>
+                <p className="text-xl text-[var(--champion-detail-box-title)]">
+                  {data.title}
+                </p>
               </div>
             </div>
 
             {/* Basic Info */}
-            <div className="bg-[#dedede] p-6 flex flex-wrap md:flex-nowrap gap-6 text-[#333333]">
+            <div className="bg-[var(--champion-detail-box-bg)] p-6 flex flex-wrap md:flex-nowrap gap-6 text-[#333333]">
               <div className="w-full md:w-1/4">
                 <Image
                   width={80}
@@ -36,8 +38,12 @@ const ChampionDetailClient = ({ data }: { data: ChampionDetail }) => {
 
               <div className="w-full md:w-3/4">
                 <div className="mb-4">
-                  <h2 className="text-2xl font-semibold mb-2">Lore</h2>
-                  <p className="text-[#444]">{data.lore}</p>
+                  <h2 className="text-2xl font-semibold mb-2 text-[var(--champion-detail-box-main)]">
+                    Lore
+                  </h2>
+                  <p className="text-[var(--champion-detail-box-text)]">
+                    {data.lore}
+                  </p>
                 </div>
 
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-4">
@@ -91,12 +97,12 @@ const ChampionDetailClient = ({ data }: { data: ChampionDetail }) => {
 
           {/* Statistics */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-            <div className="bg-[#dedede] rounded-lg p-6">
-              <h2 className="text-xl font-semibold text-[#222] mb-4">
+            <div className="bg-[var(--champion-detail-box-bg)] rounded-lg p-6">
+              <h2 className="text-xl font-semibold text-[var(--champion-detail-box-main)] mb-4">
                 Combat Statistics
               </h2>
               <div className="grid gap-4">
-                <div className="text-[#4A4E4D]">
+                <div className="text-[var(--champion-detail-box-text)]">
                   <p className="flex justify-between">
                     <span>Health:</span>
                     <span className="font-medium text-green-800">
@@ -124,7 +130,7 @@ const ChampionDetailClient = ({ data }: { data: ChampionDetail }) => {
                     </span>
                   </p>
                 </div>
-                <div className="text-[#4A4E4D]">
+                <div className="text-[var(--champion-detail-box-text)]">
                   <p className="flex justify-between">
                     <span>Armor:</span>
                     <span className="font-medium text-blue-700">
@@ -153,13 +159,15 @@ const ChampionDetailClient = ({ data }: { data: ChampionDetail }) => {
               </div>
             </div>
 
-            <div className="bg-[#dedede] rounded-lg p-6">
-              <h2 className="text-xl font-semibold text-[#222] mb-4">Tips</h2>
+            <div className="bg-[var(--champion-detail-box-bg)] rounded-lg p-6">
+              <h2 className="text-xl font-semibold text-[var(--champion-detail-box-main)] mb-4">
+                Tips
+              </h2>
               <div className="mb-4">
                 <h3 className="text-green-700 font-medium mb-2">
                   Playing as {data.name}
                 </h3>
-                <ul className="list-disc pl-5 text-[#4A4E4D] space-y-1">
+                <ul className="list-disc pl-5 text-[var(--champion-detail-box-text)] space-y-1">
                   {data.allytips.map((tip, index) => (
                     <li key={index}>{tip}</li>
                   ))}
@@ -169,7 +177,7 @@ const ChampionDetailClient = ({ data }: { data: ChampionDetail }) => {
                 <h3 className="text-red-700 font-medium mb-2">
                   Playing against {data.name}
                 </h3>
-                <ul className="list-disc pl-5 text-[#4A4E4D] space-y-1">
+                <ul className="list-disc pl-5 text-[var(--champion-detail-box-text)] space-y-1">
                   {data.enemytips.map((tip, index) => (
                     <li key={index}>{tip}</li>
                   ))}
@@ -179,8 +187,8 @@ const ChampionDetailClient = ({ data }: { data: ChampionDetail }) => {
           </div>
 
           {/* Abilities */}
-          <div className="bg-[#dedede] rounded-lg p-6 mb-8">
-            <h2 className="text-xl font-semibold text-[#222] mb-6">
+          <div className="bg-[var(--champion-detail-box-bg)] rounded-lg p-6 mb-8">
+            <h2 className="text-xl font-semibold text-[var(--champion-detail-box-main)] mb-6">
               Abilities
             </h2>
 
@@ -198,7 +206,7 @@ const ChampionDetailClient = ({ data }: { data: ChampionDetail }) => {
                   <h3 className="text-[#B33A3A] font-bold">
                     Passive: {data.passive.name}
                   </h3>
-                  <p className="text-[#4A4E4D] mt-1">
+                  <p className="text-[var(--champion-detail-box-text)] mt-1">
                     {data.passive.description}
                   </p>
                 </div>
@@ -225,7 +233,7 @@ const ChampionDetailClient = ({ data }: { data: ChampionDetail }) => {
                   />
                   <div>
                     <div className="flex items-center gap-2">
-                      <h3 className="text-[#444] font-medium">
+                      <h3 className="text-[var(--champion-detail-box-title)] font-medium">
                         {getAbilityKey(index)}: {spell.name}
                       </h3>
                       <span className="text-xs text-[#fefefe] bg-[#8e5c6a] px-2 py-1 rounded">
@@ -235,7 +243,9 @@ const ChampionDetailClient = ({ data }: { data: ChampionDetail }) => {
                         Cost: {spell.costBurn} {data.partype}
                       </span>
                     </div>
-                    <p className="text-[#4A4E4D] mt-1">{spell.description}</p>
+                    <p className="text-[var(--champion-detail-box-text)] mt-1">
+                      {spell.description}
+                    </p>
                   </div>
                 </div>
               </div>
