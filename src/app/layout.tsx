@@ -33,7 +33,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-[#5b5f5e] relative`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-[var(--background)] relative`}
       >
         <nav className="sticky min-h-[50px]  bg-[var(--nav-bg-color)] content-center">
           <div className="flex justify-around gap-2 flex-wrap text-[#eeeeee] font-bold max-w-[1200px] my-0 mx-auto">

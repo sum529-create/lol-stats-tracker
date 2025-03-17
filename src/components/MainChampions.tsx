@@ -9,7 +9,6 @@ import React from "react";
 const MainChampions = () => {
   const { filterFreeRotationTop3, version } =
     useRotationList("freeChampionIds");
-  console.log(filterFreeRotationTop3);
 
   return (
     <div className="mb-12">

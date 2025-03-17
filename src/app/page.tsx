@@ -1,5 +1,5 @@
 import MainChampions from "@/components/MainChampions";
-import { FeatureCard } from "@/ui/\bMainFeatureCard";
+import { FeatureCard } from "@/ui/MainFeatureCard";
 import Link from "next/link";
 
 export default function Home() {
