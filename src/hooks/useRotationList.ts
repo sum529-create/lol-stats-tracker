@@ -33,8 +33,9 @@ export const useRotationList = (type: RotationType) => {
   }
 
   // 로테이션 아이디와 조인
-  const freeRotationChampions =
-    rotationData?.[type].map((e: number) => championsById[e.toString()]) || [];
+  const freeRotationChampions = rotationData
+    ? rotationData[type].map((e: number) => championsById[e.toString()])
+    : [];
 
   const filterFreeRotationTop3 = [...freeRotationChampions].splice(0, 4);
 
