@@ -28,7 +28,7 @@ const ChampionsList = ({ championsList, version }: ChampionsList) => {
           value={search}
           onChange={(e) => setSearch(e.target.value)}
           placeholder="검색하실 챔피언 이름을 입력해주세요."
-          className="w-full px-6 py-2 rounded-full bg-gray-200 text-gray-800 focus:ring-4 focus:ring-blue-500 focus:outline-none shadow-lg transition duration-300 ease-in-out placeholder:text-gray-500 leading-4"
+          className="w-full px-6 py-2 rounded-full bg-gray-200 text-[var(--champions-list-search-input-text)] focus:ring-4 focus:ring-blue-500 focus:outline-none shadow-lg transition duration-300 ease-in-out placeholder:text-gray-500 leading-4"
         />
       </div>
       <CardWrapper>
