@@ -17,7 +17,7 @@ export default function GlobalError({
   return (
     <html lang="ko">
       <body>
-        <div className="min-h-screen flex flex-col items-center justify-center bg-gray-100 p-4">
+        <div className="min-h-screen flex flex-col items-center justify-center p-4">
           <div className="w-full max-w-md p-8 bg-white rounded-lg shadow-lg text-center">
             <div className="mb-6">
               <div className="mx-auto w-24 h-24 bg-red-100 rounded-full flex items-center justify-center mb-4">
