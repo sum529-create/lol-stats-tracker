@@ -7,7 +7,7 @@ import cn from "clsx";
 
 const ThemeChange = () => {
   const DEFAULT_BUTTON_WRAPPER =
-    "right-4 bottom-4 rounded-4xl w-[48px] h-[48px] fixed hover:scale-120 transition-all cursor-pointer";
+    "right-4 bottom-4 rounded-4xl w-[48px] h-[48px] fixed hover:scale-120 transition-all cursor-pointer z-20";
   const DEFAULT_ICON_STYLE =
     "my-0 mx-auto trans absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2";
   const { theme, setTheme } = useTheme();

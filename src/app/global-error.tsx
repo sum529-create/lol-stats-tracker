@@ -17,7 +17,7 @@ export default function GlobalError({
   return (
     <html lang="ko">
       <body>
-        <div className="min-h-screen flex flex-col items-center justify-center bg-gray-100 p-4">
+        <div className="min-h-screen flex flex-col items-center justify-center p-4">
           <div className="w-full max-w-md p-8 bg-white rounded-lg shadow-lg text-center">
             <div className="mb-6">
               <div className="mx-auto w-24 h-24 bg-red-100 rounded-full flex items-center justify-center mb-4">
@@ -46,7 +46,7 @@ export default function GlobalError({
               </button>
               <Link
                 href="/"
-                className="w-full py-3 rounded-md border border-gray-300 text-gray-700 font-medium hover:bg-gray-100 transition-colors"
+                className="w-full py-3 min-h-[48px] rounded-md border border-gray-300 text-black font-medium hover:bg-gray-100 transition-colors"
               >
                 홈으로 돌아가기
               </Link>
