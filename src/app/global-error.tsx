@@ -46,7 +46,7 @@ export default function GlobalError({
               </button>
               <Link
                 href="/"
-                className="w-full py-3 rounded-md border border-gray-300 text-gray-700 font-medium hover:bg-gray-100 transition-colors"
+                className="w-full py-3 min-h-[48px] rounded-md border border-gray-300 text-black font-medium hover:bg-gray-100 transition-colors"
               >
                 홈으로 돌아가기
               </Link>
