@@ -31,7 +31,7 @@ const MainChampions = () => {
 
   return (
     <div className="mb-12">
-      <h2 className="text-3xl font-bold mb-6">추천 챔피언</h2>
+      <h2 className="text-2xl md:text-3xl font-bold mb-6">추천 챔피언</h2>
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
         {filterFreeRotationTop3?.map((champion: ChampionBasic) => (
           <Link
