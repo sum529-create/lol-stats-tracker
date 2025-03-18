@@ -21,7 +21,7 @@ const ChampionsCard = ({
             src={`${RIOT_GAMES_API_URL}/cdn/${version}/img/champion/${champion.image.full}`}
             alt={champion.name}
             loading="lazy"
-            className="bg-[var(--champions-card-image-color)] transition-transform transform hover:scale-120"
+            className="bg-[var(--champions-card-image-color)] transition-transform transform hover:scale-120 mx-auto"
           />
         </div>
         <p className="text-[var(--champions-card-title-color)] text-xl my-4 hover:text-[var(--champions-card-title-hover-color)]">
